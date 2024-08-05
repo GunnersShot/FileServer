@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload and Download</title>
+</head>
+<body>
+    <h2>File Upload</h2>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+    </form>
+    <br>
+
+    <a href="/view-uploads" class="btn">View Uploads</a>
+
+    <hr>
+
+    <h2>File Download</h2>
+       {% if show_file_list %}
+    <ul>
+        {% for filename in file_list %}
+        <li>
+            {{ filename }}
+            <a href="/download/{{ filename }}">Download</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <a href="/view-downloads">View Downloads</a>
+    {% endif %}
+</body>
+</html>

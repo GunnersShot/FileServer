@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Server</title>
+</head>
+<body>
+    <h2>File Server</h2>
+    {% if show_file_list %}
+    <ul>
+        {% for filename in file_list %}
+        <li>
+            {{ filename }}
+            <a href="/download/{{ filename }}">Download</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <a href="/view-downloads">View Downloads</a>
+    {% endif %}
+</body>
+</html>
